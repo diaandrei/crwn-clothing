@@ -1,6 +1,6 @@
-import firebase from "firebase/app";
-import "firebase/firestore";
-import "firebase/auth";
+import firebase from "firebase/compat/app";
+import "firebase/compat/firestore";
+import "firebase/compat/auth";
 
 const config = {
   apiKey: "AIzaSyB0cCjElYSEfUabWTHNikKA8_q70Hgn3-I",
@@ -13,6 +13,7 @@ const config = {
 };
 
 firebase.initializeApp(config);
+
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
