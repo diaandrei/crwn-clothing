@@ -1,4 +1,4 @@
-# Test the app here https://crownclothing-appp.herokuapp.com/
+# Test the app here https://diaandrei.github.io/crwn-clothing/
 
 # How to fork and clone
 
