@@ -1,21 +1,26 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { HashRouter } from "react-router-dom"
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import "./index.css";
-import App from "./App";
+import './index.css';
+import App from './App';
 
-import { store, persistor } from "./Redux/store";
+import { store, persistor } from './Redux/store';
 
-ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <PersistGate persistor={persistor}>
-        <App />
-      </PersistGate>
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById("root")
-);
+const rootElement = document.getElementById('root');
+
+if (rootElement) {
+  createRoot(rootElement).render(
+    <Provider store={store}>
+      <HashRouter>
+        <PersistGate persistor={persistor}>
+          <App />
+        </PersistGate>
+      </HashRouter>
+    </Provider>
+  );
+} else {
+  console.error('Could not find root element to mount the application.');
+}
